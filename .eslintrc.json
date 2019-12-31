@@ -22,7 +22,6 @@
     "max-params": ["error", 5],
     "max-statements-per-line": ["error", { "max": 1 }],
     "no-alert": "error",
-    "no-console": "error",
     "no-duplicate-imports": "error",
     "no-extra-bind": "error",
     "no-unused-vars": ["error", { "caughtErrors": "all" }],
