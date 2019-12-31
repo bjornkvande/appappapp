@@ -6,7 +6,7 @@ function build(callback) {
   mkdirp('dist/');
   mkdirp('dist/sounds');
   gulp.src('source/*.*').pipe(gulp.dest('dist/'));
-  gulp.src('sounds/*.*').pipe(gulp.dest('dist/'));
+  gulp.src('sounds/*.mp3').pipe(gulp.dest('dist/sounds/'));
   callback();
 }
 // watch for file changes and rebuild
