@@ -36,7 +36,9 @@ function html(state) {
   const button = `app-button ${state.down ? 'app-pressed' : 'app-unpressed'}`;
   return `
 		<div class="app">
-			 <button data-element="button" class="${button}">App!</button>
+      <div class="button-container">
+		    <button data-element="button" class="${button}">APP</button>
+      </div>
 		</div>
 	`;
 }
