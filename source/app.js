@@ -46,7 +46,9 @@ function html(state) {
 let sounds = [];
 function readSounds() {
   try {
-    sounds = [1, 2, 3, 4, 5, 6].map(n => new Audio(`sounds/app${n}.mp3`));
+    sounds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
+      n => new Audio(`sounds/app${n}.mp3`)
+    );
   } catch (error) {
     console.log(error);
   }
