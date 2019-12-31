@@ -4,8 +4,9 @@ const mkdirp = require('mkdirp');
 // copy the files needed in the top-level directory
 function build(callback) {
   mkdirp('dist/');
-  gulp.src('source/*.html').pipe(gulp.dest('dist/'));
-  gulp.src('source/*.js').pipe(gulp.dest('dist/'));
+  mkdirp('dist/sounds');
+  gulp.src('source/*.*').pipe(gulp.dest('dist/'));
+  gulp.src('sounds/*.*').pipe(gulp.dest('dist/'));
   callback();
 }
 // watch for file changes and rebuild
