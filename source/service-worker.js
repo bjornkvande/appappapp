@@ -10,7 +10,7 @@ const FILES_TO_CACHE = [
   { url: '/', revision: '2019-12-31' },
   { url: '/app.js', revision: '2019-12-31' },
   { url: '/style.css', revision: '2019-12-31' },
-  { url: '/sounds/*.mp3', revision: '2019-12-31' }
+  { url: '/sounds/', revision: '2019-12-31' }
 ];
 
 if (workbox) {
