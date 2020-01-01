@@ -7,7 +7,7 @@ function build(callback) {
   mkdirp('dist/sounds');
   mkdirp('dist/icons');
   gulp.src('source/*.*').pipe(gulp.dest('dist/'));
-  gulp.src('sounds/*.mp3').pipe(gulp.dest('dist/sounds/'));
+  gulp.src('sounds/*.*').pipe(gulp.dest('dist/sounds/'));
   gulp.src('icons/*.png').pipe(gulp.dest('dist/icons/'));
   callback();
 }

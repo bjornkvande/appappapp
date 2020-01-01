@@ -7,21 +7,21 @@ importScripts(
 );
 
 const FILES_TO_CACHE = [
-  { url: '/', revision: '2019-12-31' },
-  { url: '/app.js', revision: '2019-12-31' },
-  { url: '/style.css', revision: '2019-12-31' },
-  { url: '/sounds/app1.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app2.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app3.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app4.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app5.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app6.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app7.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app8.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app9.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app10.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app11.mp3', revision: '2019-12-31' },
-  { url: '/sounds/app12.mp3', revision: '2019-12-31' }
+  { url: '/', revision: '2020-01-01' },
+  { url: '/app.js', revision: '2020-01-01' },
+  { url: '/style.css', revision: '2020-01-01' },
+  { url: '/sounds/app1.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app2.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app3.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app4.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app5.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app6.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app7.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app8.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app9.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app10.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app11.m4a', revision: '2020-01-01' },
+  { url: '/sounds/app12.m4a', revision: '2020-01-01' }
 ];
 
 if (workbox) {

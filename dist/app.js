@@ -5,25 +5,24 @@ const state = {
 };
 
 function startApp() {
-  const down = e => react(e, { ...state, down: true });
-  const up = e => react(e, { ...state, down: false });
+  const debouncer = new Debouncer();
+  const down = e => react(e, { ...state, down: true }, debouncer);
+  const up = e => react(e, { ...state, down: false }, debouncer);
 
   document.body.addEventListener('touchstart', down);
-  document.body.addEventListener('touchend', down);
+  document.body.addEventListener('touchend', up);
   document.body.addEventListener('mousedown', down);
   document.body.addEventListener('mouseup', up);
-
-  readSounds();
 
   render(state);
 }
 
-function react(e, state) {
+function react(e, state, debouncer) {
   state = { ...state };
   const { element } = e.target.dataset;
   if (element === 'button') {
     render(state);
-    state.down && play();
+    state.down && debouncer.emit(play);
   }
 }
 
@@ -43,21 +42,32 @@ function html(state) {
 	`;
 }
 
-let sounds = [];
-function readSounds() {
+function play() {
   try {
-    sounds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(
-      n => new Audio(`sounds/app${n}.mp3`)
-    );
+    const random = Math.ceil(Math.random() * 12);
+    new Audio(`sounds/app${random}.m4a`).play();
   } catch (error) {
     console.log(error);
   }
 }
 
-function play() {
-  try {
-    sounds[Math.round(Math.random() * sounds.length)].play();
-  } catch (error) {
-    console.log(error);
+class Debouncer {
+  constructor(delay = DEFAULT_PAUSE_MS) {
+    this.delay = delay;
+  }
+
+  emit(callback) {
+    if (!this.timeoutId) {
+      callback();
+      this.timeoutId = setTimeout(() => {
+        this.timeoutId = null;
+      }, this.delay);
+    }
+  }
+
+  cancel() {
+    this.timeoutId && clearTimeout(this.timeoutId);
   }
 }
+
+const DEFAULT_PAUSE_MS = 200;
