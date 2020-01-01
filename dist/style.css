@@ -42,18 +42,16 @@ body {
   border: none;
   outline: none;
   user-select: none;
-  background-image: radial-gradient(#900c33, #0b032d);
+  background-color: #900c33;
   color: white;
   opacity: 0.85;
 }
 
 .app-unpressed {
-  background-color: #49d49d;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .app-pressed {
-  background-color: #29b47d;
-  margin-left: 2px;
+  margin-left: 1px;
   box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.5);
 }

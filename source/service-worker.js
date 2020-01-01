@@ -9,7 +9,7 @@ importScripts(
 const FILES_TO_CACHE = [
   { url: '/', revision: '2020-01-01' },
   { url: '/app.js', revision: '2020-01-01.1' },
-  { url: '/style.css', revision: '2020-01-01.2' },
+  { url: '/style.css', revision: '2020-01-01.3' },
   { url: '/sounds/app1.m4a', revision: '2020-01-01' },
   { url: '/sounds/app2.m4a', revision: '2020-01-01' },
   { url: '/sounds/app3.m4a', revision: '2020-01-01' },
