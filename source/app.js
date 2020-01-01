@@ -56,7 +56,7 @@ function canShare() {
   }
 }
 
-async function playSound() {
+function playSound() {
   try {
     const random = Math.ceil(Math.random() * 4);
     console.log(1);
@@ -66,7 +66,7 @@ async function playSound() {
       state = render({ ...state, down: false, playing: false });
     };
     console.log(3);
-    await sound.play();
+    sound.play();
     console.log(4);
     const { duration } = sound;
     state = render({ ...state, down: true, playing: true, duration });
