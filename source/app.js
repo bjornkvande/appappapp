@@ -59,7 +59,7 @@ function canShare() {
 async function playSound() {
   try {
     const random = Math.ceil(Math.random() * 4);
-    const sound = new Audio(`https://appappapp.no/sounds/app${random}.m4a`);
+    const sound = new Audio(`sounds/app${random}.m4a`);
     sound.onended = () => {
       state = render({ ...state, down: false, playing: false });
     };
