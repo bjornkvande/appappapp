@@ -82,6 +82,7 @@ function shareApp(e) {
   if (e.target.dataset.icon === 'share') {
     navigator.share({
       url: 'https://appappapp.no',
+      text: 'Appen som sier app app app',
       title: 'App! App! App!'
     });
   }
