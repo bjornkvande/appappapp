@@ -79,7 +79,9 @@ function playAnimation(state) {
 }
 
 function shareApp(e) {
+  console.log('shareApp', e);
   if (e.target.dataset.icon === 'share') {
+    console.log('shareApp - https://appappapp.no');
     navigator.share('https://appappapp.no');
   }
 }
