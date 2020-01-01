@@ -34,15 +34,17 @@ body {
 }
 
 .app-button {
+  font-family: verdana;
   width: 7rem;
   height: 7rem;
-  font-size: 2rem;
+  font-size: 1.75rem;
   border-radius: 100%;
   border: none;
   outline: none;
   user-select: none;
   background-image: radial-gradient(#900c33, #0b032d);
-  color: rgba(255, 255, 255, 0.75);
+  color: white;
+  opacity: 0.85;
 }
 
 .app-unpressed {
