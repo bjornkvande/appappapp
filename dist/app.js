@@ -4,6 +4,8 @@ const state = {
   down: false
 };
 
+const backgroundImage = background();
+
 function startApp() {
   const debouncer = new Debouncer();
   const down = e => react(e, { ...state, down: true }, debouncer);
@@ -34,7 +36,7 @@ function render(state) {
 function html(state) {
   const button = `app-button ${state.down ? 'app-pressed' : 'app-unpressed'}`;
   return `
-		<div class="app">
+		<div class="app" style="${backgroundImage}">
       <div class="button-container">
 		    <button data-element="button" class="${button}">APP</button>
       </div>
@@ -71,3 +73,12 @@ class Debouncer {
 }
 
 const DEFAULT_PAUSE_MS = 200;
+
+function background() {
+  const which = Math.ceil(Math.random() * 10);
+  const img = `app${which}.jpg`;
+  const src =
+    'https://res.cloudinary.com/trailguide-as/image/upload/dpr_auto,w_auto/appappapp/' +
+    img;
+  return `background-image: url('${src}');`;
+}
