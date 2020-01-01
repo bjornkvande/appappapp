@@ -54,7 +54,7 @@ function html(state) {
 
 async function playSound() {
   try {
-    const random = Math.ceil(Math.random() * 12);
+    const random = Math.ceil(Math.random() * 4);
     const sound = new Audio(`sounds/app${random}.m4a`);
     sound.onended = () => {
       state = render({ ...state, down: false, playing: false });
