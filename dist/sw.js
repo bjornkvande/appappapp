@@ -19,6 +19,10 @@ if (workbox) {
     "revision": "8f0015cb9f95d8fb157cee1820a8db11"
   },
   {
+    "url": "manifest.json",
+    "revision": "2afeadccf7265bccf83da34255fb8358"
+  },
+  {
     "url": "sounds/app1.m4a",
     "revision": "6c245f74e540a0cd6ca1bf1a2617a05f"
   },

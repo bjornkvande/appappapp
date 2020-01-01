@@ -25,7 +25,7 @@ function buildServiceWorker() {
   return workboxBuild
     .injectManifest({
       globDirectory: 'dist/',
-      globPatterns: ['**/*.{js,html,m4a,css}'],
+      globPatterns: ['**/*.{js,html,json,m4a,css}'],
       swDest: 'dist/sw.js',
       swSrc: 'source/sw.js'
     })
