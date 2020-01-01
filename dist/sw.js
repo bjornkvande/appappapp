@@ -12,11 +12,27 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "e14c698ce8832a5747a9668feb574293"
+    "revision": "ea0bd318387f77270d54995d435fec13"
   },
   {
     "url": "index.html",
     "revision": "8f0015cb9f95d8fb157cee1820a8db11"
+  },
+  {
+    "url": "sounds/app1.m4a",
+    "revision": "6c245f74e540a0cd6ca1bf1a2617a05f"
+  },
+  {
+    "url": "sounds/app2.m4a",
+    "revision": "24517a8b05d5d26f2a6e8f9dd46969c9"
+  },
+  {
+    "url": "sounds/app3.m4a",
+    "revision": "d92a7628379ef903802cf1232459da4a"
+  },
+  {
+    "url": "sounds/app4.m4a",
+    "revision": "26f67e8cecea2f052db7d0bafc43d8ae"
   },
   {
     "url": "style.css",
