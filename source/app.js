@@ -1,6 +1,6 @@
 window.onload = startApp;
 
-const state = {
+let state = {
   down: false
 };
 
@@ -24,32 +24,50 @@ function react(e, state, debouncer) {
   const { element } = e.target.dataset;
   if (element === 'button') {
     render(state);
-    state.down && debouncer.emit(play);
+    state.down && debouncer.emit(playSound);
   }
 }
 
 function render(state) {
-  const app = document.querySelector('#app');
-  app.innerHTML = html(state);
+  document.querySelector('#app').innerHTML = html(state);
+  return state;
 }
 
 function html(state) {
-  const button = `app-button ${state.down ? 'app-pressed' : 'app-unpressed'}`;
+  const pressed = `${state.down ? 'app-pressed' : 'app-unpressed'}`;
+  const playing = playAnimation(state);
   return `
 		<div class="app" style="${backgroundImage}">
-      <div class="button-container">
-		    <button data-element="button" class="${button}">APP</button>
+      <div class="button-container ${pressed}" style="${playing}">
+		    <button data-element="button" class="app-button">APP</button>
       </div>
 		</div>
 	`;
 }
 
-function play() {
+async function playSound() {
   try {
     const random = Math.ceil(Math.random() * 12);
-    new Audio(`sounds/app${random}.m4a`).play();
+    const sound = new Audio(`sounds/app${random}.m4a`);
+    sound.onended = () => {
+      state = render({ ...state, down: false, playing: false });
+    };
+    await sound.play();
+    const { duration } = sound;
+    state = render({ ...state, down: true, playing: true, duration });
   } catch (error) {
     console.log(error);
+  }
+}
+
+function playAnimation(state) {
+  if (state.playing) {
+    return `
+      transition: background-color ${state.duration}s;
+      background-color: rgba(255,255,0,0.5);
+    `.trim();
+  } else {
+    return 'background-color: rgba(0,0,0,0.05);';
   }
 }
 
