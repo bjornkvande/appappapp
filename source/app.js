@@ -16,7 +16,7 @@ function startApp() {
   document.body.addEventListener('mousedown', down);
   document.body.addEventListener('mouseup', up);
 
-  document.addEventListener('click', shareApp);
+  document.addEventListener('touchend', shareApp);
 
   render(state);
 }
