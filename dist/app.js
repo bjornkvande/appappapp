@@ -43,23 +43,31 @@ function html(state) {
       <div class="button-container ${pressed}" style="${playing}">
 		    <button data-element="button" class="app-button">APP</button>
       </div>
-      ${
-  navigator.share
-    ? '<div class="icon share" data-icon="share">' + share + '</div>'
-    : ''
-}
+      ${canShare()}
 		</div>
 	`;
+}
+
+function canShare() {
+  if (navigator.share && navigator.canShare && navigator.canShare()) {
+    return '<div class="icon share" data-icon="share">' + share + '</div>';
+  } else {
+    return '';
+  }
 }
 
 async function playSound() {
   try {
     const random = Math.ceil(Math.random() * 4);
+    console.log(1);
     const sound = new Audio(`sounds/app${random}.m4a`);
+    console.log(2);
     sound.onended = () => {
       state = render({ ...state, down: false, playing: false });
     };
+    console.log(3);
     await sound.play();
+    console.log(4);
     const { duration } = sound;
     state = render({ ...state, down: true, playing: true, duration });
   } catch (error) {
