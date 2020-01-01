@@ -49,7 +49,7 @@ function html(state) {
 }
 
 function canShare() {
-  if (navigator.share && navigator.canShare && navigator.canShare()) {
+  if (navigator.share) {
     return '<div class="icon share" data-icon="share">' + share + '</div>';
   } else {
     return '';
