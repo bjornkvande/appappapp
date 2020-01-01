@@ -57,22 +57,24 @@ function canShare() {
 }
 
 function playSound() {
-  try {
-    const random = Math.ceil(Math.random() * 4);
-    console.log(1);
-    const sound = new Audio(`sounds/app${random}.m4a`);
-    console.log(2);
-    sound.onended = () => {
-      state = render({ ...state, down: false, playing: false });
-    };
-    console.log(3);
-    sound.play();
-    console.log(4);
-    const { duration } = sound;
-    state = render({ ...state, down: true, playing: true, duration });
-  } catch (error) {
-    console.log(error);
-  }
+  const random = Math.ceil(Math.random() * 4);
+  console.log(1);
+  const sound = new Audio(`sounds/app${random}.m4a`);
+  console.log(2);
+  sound.onended = () => {
+    state = render({ ...state, down: false, playing: false });
+  };
+  console.log(3);
+  sound
+    .play()
+    .then(() => {
+      console.log(4);
+      const { duration } = sound;
+      state = render({ ...state, down: true, playing: true, duration });
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 function playAnimation(state) {
