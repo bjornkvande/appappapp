@@ -12,7 +12,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "41e64b1beeffebec5a77036d3fa3c5ca"
+    "revision": "f971053350aa4c540e1396255ff41656"
   },
   {
     "url": "index.html",
@@ -27,16 +27,32 @@ if (workbox) {
     "revision": "6c245f74e540a0cd6ca1bf1a2617a05f"
   },
   {
+    "url": "sounds/app1.mp3",
+    "revision": "13099d6b38f25bb3923834222d73f2ff"
+  },
+  {
     "url": "sounds/app2.m4a",
     "revision": "24517a8b05d5d26f2a6e8f9dd46969c9"
+  },
+  {
+    "url": "sounds/app2.mp3",
+    "revision": "6d532b8d1c379cda014543143b1d7ea0"
   },
   {
     "url": "sounds/app3.m4a",
     "revision": "d92a7628379ef903802cf1232459da4a"
   },
   {
+    "url": "sounds/app3.mp3",
+    "revision": "7e15bed50a69b8e2e3c315555f7e6e11"
+  },
+  {
     "url": "sounds/app4.m4a",
     "revision": "26f67e8cecea2f052db7d0bafc43d8ae"
+  },
+  {
+    "url": "sounds/app4.mp3",
+    "revision": "0faa246870b6e051af7fad32876e5085"
   },
   {
     "url": "style.css",
