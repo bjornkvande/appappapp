@@ -16,7 +16,7 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "f6bedeb05c4210dade33923f154a673a"
+    "revision": "0381d1809e1dfb3b13f5c6a14379eecd"
   },
   {
     "url": "manifest.json",
