@@ -6,8 +6,6 @@ let state = {
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', e => {
-  // Stash the event so it can be triggered later.
-  console.log('beforeinstallprompt', e);
   deferredPrompt = e;
   e.preventDefault();
 });
@@ -113,7 +111,6 @@ function installOrShare(e) {
       title: 'App! App! App!'
     });
   } else if (e.target.dataset.element === 'install' && deferredPrompt) {
-    console.log('install clicked');
     deferredPrompt.prompt();
   }
 }
