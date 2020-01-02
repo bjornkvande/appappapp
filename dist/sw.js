@@ -12,7 +12,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "e0ceeddd312ad23b9804e936189d2706"
+    "revision": "c3a9c80967535a7acfc7bf451e36282e"
   },
   {
     "url": "index.html",

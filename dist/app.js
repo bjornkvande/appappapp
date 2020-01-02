@@ -10,6 +10,10 @@ window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
 });
 
+window.addEventListener('appinstalled', () => {
+  console.log('app installed');
+});
+
 const backgroundImage = background();
 
 function startApp() {
