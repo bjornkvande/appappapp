@@ -4,6 +4,13 @@ let state = {
   down: false
 };
 
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  // Stash the event so it can be triggered later.
+  console.log('beforeinstallprompt', e);
+  deferredPrompt = e;
+});
+
 const backgroundImage = background();
 
 function startApp() {
