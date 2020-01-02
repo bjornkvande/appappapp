@@ -9,6 +9,7 @@ window.addEventListener('beforeinstallprompt', e => {
   // Stash the event so it can be triggered later.
   console.log('beforeinstallprompt', e);
   deferredPrompt = e;
+  e.preventDefault();
 });
 
 const backgroundImage = background();
@@ -23,7 +24,7 @@ function startApp() {
   document.body.addEventListener('mousedown', down);
   document.body.addEventListener('mouseup', up);
 
-  document.addEventListener('touchend', shareApp);
+  document.addEventListener('touchend', installOrShare);
 
   render(state);
 }
@@ -50,14 +51,29 @@ function html(state) {
       <div class="button-container ${pressed}" style="${playing}">
 		    <button data-element="button" class="app-button">APP</button>
       </div>
+      ${installButton()}
       ${canShare()}
 		</div>
 	`;
 }
 
+function installButton() {
+  if (deferredPrompt) {
+    return '<button class="install">Install</button>';
+  } else {
+    return '';
+  }
+}
+
 function canShare() {
   if (navigator.share) {
-    return '<div class="icon share" data-icon="share">' + share + '</div>';
+    return `
+      <div data-element="install" class="icon share" data-element="share">
+        <svg data-element="share" class="align-middle" viewBox="0 0 24 24">
+          <path data-element="share" d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" />
+        </svg>
+      </div>
+    `;
   } else {
     return '';
   }
@@ -74,7 +90,7 @@ async function playSound() {
     const { duration } = sound;
     state = render({ ...state, down: true, playing: true, duration });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -89,13 +105,16 @@ function playAnimation(state) {
   }
 }
 
-function shareApp(e) {
-  if (e.target.dataset.icon === 'share') {
+function installOrShare(e) {
+  if (e.target.dataset.element === 'share') {
     navigator.share({
       url: 'https://appappapp.no',
       text: 'Appen som sier app app app',
       title: 'App! App! App!'
     });
+  } else if (e.target.dataset.element === 'install' && deferredPrompt) {
+    console.log('install clicked');
+    deferredPrompt.prompt();
   }
 }
 
@@ -128,9 +147,3 @@ function background() {
     img;
   return `background-image: url('${src}');`;
 }
-
-const share = `
-  <svg data-icon="share" class="align-middle" viewBox="0 0 24 24">
-    <path data-icon="share" d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" />
-  </svg>
-`.trim();
