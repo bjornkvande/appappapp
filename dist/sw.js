@@ -56,7 +56,7 @@ if (workbox) {
   },
   {
     "url": "style.css",
-    "revision": "a66c4fc79b171a416aa0f82811d2a6b3"
+    "revision": "a0d31088397b2eef6adc0582b6f8a816"
   }
 ]);
   cacheBackgroundImages();
