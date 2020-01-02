@@ -10,8 +10,10 @@ window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
 });
 
+let installed = false;
 window.addEventListener('appinstalled', () => {
-  console.log('app installed');
+  installed = true;
+  render(state);
 });
 
 const backgroundImage = background();
@@ -61,7 +63,8 @@ function html(state) {
 
 function installButton() {
   if (deferredPrompt != null) {
-    return '<button data-element="install" class="install">Install</button>';
+    const label = installed ? 'Installed' : 'Install';
+    return `<button data-element="install" class="install">${label}</button>`;
   } else {
     return '';
   }
@@ -114,8 +117,10 @@ function installOrShare(e) {
       text: 'Appen som sier app app app',
       title: 'App! App! App!'
     });
-  } else if (e.target.dataset.element === 'install' && deferredPrompt) {
-    deferredPrompt.prompt();
+  } else if (e.target.dataset.element === 'install') {
+    if (deferredPrompt && !installed) {
+      deferredPrompt.prompt();
+    }
   }
 }
 
