@@ -1,6 +1,7 @@
 {
   "name": "App! App! App!",
   "short_name": "App!",
+  "description": "The app that says app-app-app",
   "icons": [
     {
       "src": "/icons/128.png",
@@ -34,6 +35,7 @@
     }
   ],
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#900c33"

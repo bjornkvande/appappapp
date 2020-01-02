@@ -16,11 +16,11 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "9f1b33fe0879ab65b5d14c51eb5f64de"
+    "revision": "4ab73e7681ca4959b116d82da14bdb23"
   },
   {
     "url": "manifest.json",
-    "revision": "2afeadccf7265bccf83da34255fb8358"
+    "revision": "e1ee00160357f76933a40bf479df7375"
   },
   {
     "url": "sounds/app1.m4a",
