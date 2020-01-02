@@ -12,7 +12,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "7102eaefbdbf9e3d28d1f379b6587378"
+    "revision": "93321cda45a31ac7defbc78191e453d9"
   },
   {
     "url": "index.html",
@@ -56,7 +56,7 @@ if (workbox) {
   },
   {
     "url": "style.css",
-    "revision": "a58721a6962262f48fc293f40b3042d4"
+    "revision": "e624ea2d6fc1efa4b33b4db3136fe51a"
   }
 ]);
   cacheBackgroundImages();
