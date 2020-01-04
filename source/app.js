@@ -20,8 +20,8 @@ const backgroundImage = background();
 
 function startApp() {
   const debouncer = new Debouncer();
-  const down = e => react(e, { ...state, down: true }, debouncer);
-  const up = e => react(e, { ...state, down: false }, debouncer);
+  const down = e => update(e, { ...state, down: true }, debouncer);
+  const up = e => update(e, { ...state, down: false }, debouncer);
 
   document.body.addEventListener('touchstart', down);
   document.body.addEventListener('touchend', up);
@@ -33,7 +33,7 @@ function startApp() {
   render(state);
 }
 
-function react(e, state, debouncer) {
+function update(e, state, debouncer) {
   state = { ...state };
   const { element } = e.target.dataset;
   if (element === 'button') {
@@ -143,7 +143,7 @@ class Debouncer {
   }
 }
 
-const DEFAULT_PAUSE_MS = 200;
+const DEFAULT_PAUSE_MS = 50;
 
 function background() {
   const which = Math.ceil(Math.random() * 10);

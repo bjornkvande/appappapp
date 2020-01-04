@@ -12,11 +12,11 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "381b03e01a31ce3b7d078f43545d8d0d"
+    "revision": "59e0711b631e6ace7d88a2f7bd92239f"
   },
   {
     "url": "index.html",
-    "revision": "ac4c89fae7045eb53a694bc66efc02ee"
+    "revision": "e9fdc9039a38dfcd407fcdb909473b7e"
   },
   {
     "url": "manifest.json",
