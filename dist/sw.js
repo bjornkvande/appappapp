@@ -12,7 +12,7 @@ if (workbox) {
   workbox.precaching.precacheAndRoute([
   {
     "url": "app.js",
-    "revision": "59e0711b631e6ace7d88a2f7bd92239f"
+    "revision": "37767d11c668b695b1f49ee0d13725de"
   },
   {
     "url": "index.html",
@@ -37,6 +37,10 @@ if (workbox) {
   {
     "url": "sounds/app4.mp3",
     "revision": "0faa246870b6e051af7fad32876e5085"
+  },
+  {
+    "url": "sounds/app5.mp3",
+    "revision": "fc60ba02f527ef28ce33fb62fe4f8287"
   },
   {
     "url": "style.css",
