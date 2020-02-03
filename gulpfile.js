@@ -10,7 +10,7 @@ function dir(callback) {
 }
 const source = () => src('source/*.*').pipe(dest('dist/'));
 const sounds = () => src('sounds/*.*').pipe(dest('dist/sounds/'));
-const icons = () => src('sounds/*.*').pipe(dest('dist/sounds/'));
+const icons = () => src('icons/*.*').pipe(dest('dist/icons/'));
 const files = series(dir, parallel(source, sounds, icons));
 
 // build including service worker
